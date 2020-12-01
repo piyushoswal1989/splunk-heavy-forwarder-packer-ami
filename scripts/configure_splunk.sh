@@ -29,3 +29,8 @@ cd /opt/splunk/bin
 # that Splunk checks the `$SPLUNK_HOME/etc/licenses` directory and automatically imports anything
 # it finds in there.  Leaving this in though for reference.
 # ./splunk add licenses /opt/splunk/etc/licenses/enterprise/HF_License.license
+
+#small config change into the config files for solving connection error
+echo "[tcpout]" > /opt/splunk/etc/system/local/outputs.conf
+echo "defaultGroup = splunkcloud" >> /opt/splunk/etc/system/local/outputs.conf
+echo "indexAndForward = 0" >> /opt/splunk/etc/system/local/outputs.conf
